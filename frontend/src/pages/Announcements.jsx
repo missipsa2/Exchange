@@ -40,32 +40,30 @@ const Announcements = () => {
     );
 
     return (
-        <div className="container mx-auto px-4 py-25">
-            <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight">
-                    Annonces Récentes
-                </h2>
-                <p className="mt-4 text-lg text-gray-500">
-                    Découvrez les objets et compétences partagés par vos voisins.
-                </p>
-            </div>
-
-            {!ads ? (
-                <div className="text-center text-gray-500 text-xl mt-10 bg-gray-50 p-10 rounded-xl">
-                    Aucune annonce disponible pour le moment. Soyez le premier à poster !
-                </div>
-            ) : (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {ads.map((ad) => (
-                        <AdCard key={ad._id} ad={ad} />
-                    ))}
-                </div>
-            )}
-
-            {user && (
-                <CreateAdModal userLocation={user.location}/>
-            )}
+      <div className="container mx-auto px-4 py-25">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight">
+            Recent Announcements
+          </h2>
+          <p className="mt-4 text-lg text-gray-500">
+            Discover the objects and skills shared by your neighbors.
+          </p>
         </div>
+
+        {!ads ? (
+          <div className="text-center text-gray-500 text-xl mt-10 bg-gray-50 p-10 rounded-xl">
+            No listings available at the moment. Be the first to post !
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {ads.map((ad) => (
+              <AdCard key={ad._id} ad={ad} />
+            ))}
+          </div>
+        )}
+
+        {user && <CreateAdModal userLocation={user.location} />}
+      </div>
     );
 };
 
